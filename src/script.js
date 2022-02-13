@@ -65,13 +65,16 @@ gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(upda
  * Models
  */
 gltfLoader.load(
-    '/models/FlightHelmet/glTF/FlightHelmet.gltf',
+    '/models/Geisha/scene.gltf',
     (gltf) =>
     {
-        gltf.scene.scale.set(8, 8, 8)
-        gltf.scene.position.set(0, - 4, 0)
-        gltf.scene.rotation.y = Math.PI * 0.05
+        gltf.scene.scale.set(2, 2, 2)
+        gltf.scene.position.set(0, 2, 0)
+        gltf.scene.rotation.y = -0.5
         scene.add(group1)
+
+
+        
 
         group1.add(gltf.scene)
 
@@ -145,12 +148,12 @@ window.addEventListener('resize', () =>
  */
 // Group
 const cameraGroup = new THREE.Group()
-
+scene.add(cameraGroup)
 
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(0, -1, 4)
-scene.add(cameraGroup)
+cameraGroup.add(camera)
 // // Controls
 // const controls = new OrbitControls(camera, canvas)
 // controls.enableDamping = true;
@@ -242,25 +245,21 @@ const tick = () =>
      
 
      //Animate camera
-     camera.position.y = - scrollY / sizes.height * 5
+     camera.position.y = - scrollY / sizes.height * 4 //scroll vertical et control de distance de scroll
 
     const parallaxX = cursor.x
-    const parallaxY = cursor.y
+    const parallaxY = - cursor.y
 
-    camera.position.x = - parallaxX
-    camera.position.y = parallaxY
-
-    cameraGroup.position.x = parallaxX 
-    cameraGroup.position.y = parallaxY 
+    cameraGroup.position.x = parallaxX
+    cameraGroup.position.y = parallaxY
     // Update controls
 
 
     // controls.update()
-
-     
-   group1.rotation.y = elapsedTime * 0.5
+    // group1.rotation.z = Math.cos() * 2
+//  group1.rotation.y = elapsedTime * 0.5
    group1.position.x = 2
-
+   group1.rotation.x = - parallaxX * 0.05
     // Render
     renderer.render(scene, camera)
 

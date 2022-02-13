@@ -1,3 +1,11 @@
+:root 
+{
+    --SizeTitre: 1.5em;
+    --sousTitreSize: 0.8em;
+    --paragrapheSize: 0.6em;
+    --background: #272727;
+}
+
 *
 {
     margin: 0;
@@ -8,13 +16,13 @@
 body
 {
     overflow-x: hidden;
-    background: rgb(37, 45, 70);
+    background: var(--background);
 }
 
 
 .webgl
 {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     outline: none;
@@ -30,14 +38,58 @@ body
     height: 100vh;
     position: relative;
     font-family: 'Cabin', sans-serif;
-    color: #ffeded;
+    color: #ffffff;
     text-transform: uppercase;
-    font-size: 7vmin;
+    font-size: 4vmin;
     padding-left: 10%;
     padding-right: 10%;
+}
+ 
+section > h1 
+ {
+     font-size: 5rem;
+     letter-spacing: 0.6em;
+ }
+
+.section.projet 
+{
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 2rem 5rem;
+    background-color: var(--background);
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 section:nth-child(odd)
 {
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
+}
+
+
+.titre_section {
+    font-size: var(--SizeTitre) ;
+}
+
+.titre_section > span 
+{
+    text-transform: lowercase;
+    font-weight: 300;
+    font-size: var(--sousTitreSize);
+}
+
+p.description
+{
+    text-transform: lowercase;
+    font-weight: 300;
+    color: grey;
+    font-size: var(--paragrapheSize) !important;
+}
+
+.block_illustration 
+{
+    width: 50%;
+    height: 25rem;
+    background-color: aquamarine;
 }
