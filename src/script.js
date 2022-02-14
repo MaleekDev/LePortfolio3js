@@ -44,6 +44,11 @@ const updateAllMaterials = () =>
 /**
  * Environment map
  */
+
+// const environmentMap = new THREE.RGBELoader().load([
+//     '/textures/environmentMaps/4/HDR_110_Tunnel_Env.hdr'
+// ])
+
 const environmentMap = cubeTextureLoader.load([
     '/textures/environmentMaps/3/px.jpg',
     '/textures/environmentMaps/3/nx.jpg',
@@ -170,7 +175,7 @@ cameraGroup.add(camera)
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true,
-    alpha: true// background transparent
+    alpha: true // background transparent
 })
 renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
@@ -214,6 +219,32 @@ window.addEventListener('scroll', () =>
 
 
 
+
+
+// function ChangerDeTexte() {
+//     titre.textContent = 'Changement de texte';
+// }
+
+// //Objectif changer le texte en h1 
+// let titre = document.querySelector('h1')
+
+// if (titre.addEventListener('click',) ) 
+//     {
+//         ChangerDeTexte()
+//     }      
+//  else{
+//         console.error("ce n'est pas bon")
+//  }
+
+
+
+
+
+
+
+
+
+
 /**
  * cursor
  */
@@ -222,8 +253,6 @@ window.addEventListener('scroll', () =>
  {
      cursor.x = event.clientX / sizes.width
      cursor.y = event.clientY / sizes.height
- 
-     console.log(cursor)
  })
 
  const cursor = {}
@@ -250,15 +279,20 @@ const tick = () =>
     const parallaxX = cursor.x
     const parallaxY = - cursor.y
 
-    cameraGroup.position.x = parallaxX
-    cameraGroup.position.y = parallaxY
+    cameraGroup.position.x = - parallaxX
+    cameraGroup.position.y = -parallaxY
     // Update controls
 
 
     // controls.update()
     // group1.rotation.z = Math.cos() * 2
-//  group1.rotation.y = elapsedTime * 0.5
-   group1.position.x = 2
+
+    //position
+    
+    group1.position.x = 2
+    //rotation
+    group1.rotation.y = Math.cos(2) * elapsedTime *0.5
+    // group1.rotation.x = elapsedTime * 0.5
    group1.rotation.x = - parallaxX * 0.05
     // Render
     renderer.render(scene, camera)
@@ -268,3 +302,23 @@ const tick = () =>
 }
 
 tick()
+
+
+
+
+
+
+
+
+
+
+
+
+
+//teste de code js
+let box = document.querySelector('.box')
+let illBox = document.querySelector('.block_illustration')
+
+box.addEventListener('click', function() {
+    illBox.style.background = 'red'
+}) 

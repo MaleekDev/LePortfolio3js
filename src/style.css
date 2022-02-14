@@ -5,7 +5,9 @@
     --paragrapheSize: 0.6em;
     --background: #272727;
 }
-
+main {
+    width: 100%;
+}
 *
 {
     margin: 0;
@@ -28,6 +30,32 @@ body
     outline: none;
 }
 
+
+.contenu_interractif
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 174px);
+}
+
+.box 
+{
+    display: flex;
+    flex: auto;
+    margin:0.5rem ;
+    width: 10rem;
+    height: 15rem;
+    background-color: burlywood;
+    transition: transform ease-in 500ms;
+}
+
+.box:hover 
+{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+
  .block {
      background-color: grey;
  }
@@ -41,8 +69,8 @@ body
     color: #ffffff;
     text-transform: uppercase;
     font-size: 4vmin;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
  
 section > h1 
@@ -59,7 +87,7 @@ section > h1
     padding: 2rem 5rem;
     background-color: var(--background);
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 section:nth-child(odd)
