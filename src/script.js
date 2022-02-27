@@ -2,19 +2,21 @@ import './style.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 /**
  * Loaders
  */
 const gltfLoader = new GLTFLoader()
-const cubeTextureLoader = new THREE.CubeTextureLoader()
-const group1 = new THREE.Group()
+const cubeTextureLoader = new THREE.CubeTextureLoader() //telecharger les images de l'environnements
+const group1 = new THREE.Group()// création d'un groupe
 
 /**
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+const gui = new dat.GUI()//Activer un panneau de controle
 const debugObject = {}
 
 // Canvas
@@ -22,6 +24,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+// const sceneInfo = makeScene(document.querySelector('#scene'));
 
 /**
  * Update all materials
@@ -64,19 +67,16 @@ gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(upda
 /**
  * Models
  */
+
 gltfLoader.load(
-    '/models/Geisha/scene.gltf',
+    '/models/crane/crane1.gltf',
     (gltf) =>
     {
-        gltf.scene.scale.set(2, 2, 2)
-        gltf.scene.position.set(0, 2, 0)
+        gltf.scene.scale.set(0.8, 0.8, 0.8)
+        gltf.scene.position.set(0, -2.5, 0)
         gltf.scene.rotation.y = -0.5
-        scene.add(group1)
-
-
-        
-
         group1.add(gltf.scene)
+        scene.add(group1)
 
         gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
 
@@ -257,7 +257,10 @@ const tick = () =>
 
     // controls.update()
     // group1.rotation.z = Math.cos() * 2
-//  group1.rotation.y = elapsedTime * 0.5
+    group1.opacity = 0
+ group1.rotation.y = elapsedTime * 0.3
+gsap.to(group1.position, { duration: 2, delay: 0.5, opacity: 1})
+
    group1.position.x = 2
    group1.rotation.x = - parallaxX * 0.05
     // Render
@@ -268,3 +271,46 @@ const tick = () =>
 }
 
 tick()
+
+// gsap.to(".titre_principale", { x: 100, opacity: 1, duration: 3});
+
+
+// gsap.to(".titre", {
+//     scrollTrigger: {
+//         trigger: ".titre",
+//         toggleActions:"restart none none none"
+//     }, 
+//     x: 100,
+//     opacity: 1,
+//     duration: 3
+//   });
+gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to(".titre", { 
+    scrollTrigger: {
+      trigger: ".titre",
+      toggleActions: "play restart restart reset",
+    //   scrub: true,
+    //   start: "top bottom",
+    // end: "top top"
+      
+    },
+    x: 100,
+    opacity: 1,
+    duration: 2
+  });
+
+  gsap.to(".scd-parti", { 
+    scrollTrigger: {
+      trigger: ".scd-parti",
+      toggleActions: "play restart restart reset",
+    //   scrub: true,
+    //   start: "top bottom",
+    // end: "top top"
+      
+    },
+    x: 150,
+    opacity: 1,
+    duration: 2
+  });
+

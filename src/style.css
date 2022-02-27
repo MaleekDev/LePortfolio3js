@@ -16,7 +16,7 @@
 body
 {
     overflow-x: hidden;
-    background: var(--background);
+    background: transparent;
 }
 
 
@@ -27,15 +27,11 @@ body
     left: 0;
     outline: none;
 }
-
- .block {
-     background-color: grey;
- }
  .section
 {
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: 98vh;
     position: relative;
     font-family: 'Cabin', sans-serif;
     color: #ffffff;
@@ -43,40 +39,48 @@ body
     font-size: 4vmin;
     padding-left: 10%;
     padding-right: 10%;
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
 }
  
 section > h1 
  {
      font-size: 5rem;
      letter-spacing: 0.6em;
+     opacity: 0;
+     color: var(--background);
  }
 
-.section.projet 
+.section.job 
 {
     display: flex;
     width: 100%;
     margin: 0;
-    padding: 2rem 5rem;
-    background-color: var(--background);
+    padding: 0;
+    background-color: transparent;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-section:nth-child(odd)
+.section.projet
 {
-    /* justify-content: flex-end; */
+    background: url(/static/image/couverture_nissan.jpg);
+    background-size: cover;
 }
 
 
-.titre_section {
+.titre.principale2 {
     font-size: var(--SizeTitre) ;
 }
 
-.titre_section > span 
+.titre.principale2 > span 
 {
     text-transform: lowercase;
     font-weight: 300;
     font-size: var(--sousTitreSize);
+    opacity: 1;
 }
 
 p.description
@@ -87,9 +91,66 @@ p.description
     font-size: var(--paragrapheSize) !important;
 }
 
-.block_illustration 
+.job {
+    display: grid;
+    grid: repeat(2, 60px);
+}
+.block_titre
 {
-    width: 50%;
-    height: 25rem;
-    background-color: aquamarine;
+    margin: 0;
+    padding: 18rem 1rem;
+    width: 100%;
+    background-color: rgb(10, 10, 10);
+    grid-column: 1/2;
+}
+.block_illustration
+{
+    width: 100%;
+    height: 94.6vh;
+    background-image: url(../static/img/Relique.png);
+    background-size: cover;
+    border-style: none;
+    grid-column: 2/2;
+}
+.scd-parti{
+    margin-left: 4.5rem;
+}
+.webgl2 
+{
+    width: 100%;
+    height: 42.8rem;
+    background-color: blue;
+}
+
+
+.show_picture {
+    background-size: cover;
+    position: absolute;
+    top: 64.5vh;
+    left: 80vh;
+    width: 30rem;
+    height: 15rem;
+}
+.container_desc_projet 
+{
+    position: absolute;
+    background-color: rgb(154, 215, 253);
+    padding-left: 12vh;
+    padding-top: 12vh;
+    padding-right: 6vh;
+    width: 140vh ;
+    height: 38vh;
+    left: 110vh;
+    top: 48vh;
+    overflow: hidden;
+}
+.project_title {
+    margin-top: -2vh;
+    margin-left: 9vh;
+    font-size: 2.4rem;
+}
+.description_projet {
+    font-size: var(--paragrapheSize);
+    margin-left: 28vh;
+    margin-top: 8vh;
 }
