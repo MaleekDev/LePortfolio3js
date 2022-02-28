@@ -2,8 +2,12 @@ import './style.css'
 import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+// Dependance gsap
+import { gsap } from "gsap";
+import { ExpoScaleEase, RoughEase, SlowMo } from "gsap/EasePack";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, RoughEase, SlowMo);
 
 /**
  * Loaders
@@ -47,6 +51,7 @@ const updateAllMaterials = () =>
 /**
  * Environment map
  */
+
 const environmentMap = cubeTextureLoader.load([
     '/textures/environmentMaps/3/px.jpg',
     '/textures/environmentMaps/3/nx.jpg',
@@ -58,11 +63,11 @@ const environmentMap = cubeTextureLoader.load([
 
 environmentMap.encoding = THREE.sRGBEncoding
 
-scene.background = environmentMap
-scene.environment = environmentMap
+// scene.background = environmentMap
+// scene.environment = environmentMap
 
-debugObject.envMapIntensity = 2.5
-gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+// debugObject.envMapIntensity = 2.5
+// gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
 
 /**
  * Models
@@ -103,12 +108,12 @@ gltfLoader.load(
 /**
  * Lights
  */
-const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
+const directionalLight = new THREE.DirectionalLight('#ffffff', 0.475)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.normalBias = 0.05
-directionalLight.position.set(0.25, 3, - 2.25)
+directionalLight.position.set(-2.498, 5, 3.894)
 scene.add(directionalLight)
 
 gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
@@ -222,8 +227,7 @@ window.addEventListener('scroll', () =>
  {
      cursor.x = event.clientX / sizes.width
      cursor.y = event.clientY / sizes.height
- 
-     console.log(cursor)
+
  })
 
  const cursor = {}
@@ -247,22 +251,23 @@ const tick = () =>
      //Animate camera
      camera.position.y = - scrollY / sizes.height * 4 //scroll vertical et control de distance de scroll
 
-    const parallaxX = cursor.x
-    const parallaxY = - cursor.y
+    // const parallaxX = cursor.x
+    // const parallaxY = - cursor.y
 
-    cameraGroup.position.x = parallaxX
-    cameraGroup.position.y = parallaxY
+    // cameraGroup.position.x = parallaxX
+    
     // Update controls
 
 
     // controls.update()
     // group1.rotation.z = Math.cos() * 2
+    cameraGroup.position.y = -0.7
+    cameraGroup.position.x = 1
     group1.opacity = 0
- group1.rotation.y = elapsedTime * 0.3
-gsap.to(group1.position, { duration: 2, delay: 0.5, opacity: 1})
+    cameraGroup.rotation.y = elapsedTime * 0.6
+// gsap.to(group1.position, { duration: 2, delay: 0.5, opacity: 1})
 
-   group1.position.x = 2
-   group1.rotation.x = - parallaxX * 0.05
+   group1.position.x = 1
     // Render
     renderer.render(scene, camera)
 
@@ -284,6 +289,7 @@ tick()
 //     opacity: 1,
 //     duration: 3
 //   });
+
 gsap.registerPlugin(ScrollTrigger);
 
   gsap.to(".titre", { 
@@ -304,7 +310,7 @@ gsap.registerPlugin(ScrollTrigger);
     scrollTrigger: {
       trigger: ".scd-parti",
       toggleActions: "play restart restart reset",
-    //   scrub: true,
+      scrub: true,
     //   start: "top bottom",
     // end: "top top"
       

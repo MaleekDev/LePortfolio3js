@@ -16,7 +16,7 @@
 body
 {
     overflow-x: hidden;
-    background: transparent;
+    background: black;
 }
 
 
@@ -37,31 +37,27 @@ body
     color: #ffffff;
     text-transform: uppercase;
     font-size: 4vmin;
-    padding-left: 10%;
-    padding-right: 10%;
-<<<<<<< Updated upstream
-=======
-    
->>>>>>> Stashed changes
 }
- 
+ section > .titre.principale {
+     margin-left: 21%;
+    margin-right: 21%;
+ }
 section > h1 
  {
-     font-size: 5rem;
-     letter-spacing: 0.6em;
+    justify-content: center;
+     color: white;
+     font-size: 10rem;
+    letter-spacing: 0.2em;
      opacity: 0;
-     color: var(--background);
  }
 
 .section.job 
 {
-    display: flex;
     width: 100%;
+    height: 46rem;
     margin: 0;
     padding: 0;
-    background-color: transparent;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    background-color: rgb(10, 10, 10);
 }
 
 .section.projet
@@ -93,27 +89,34 @@ p.description
 
 .job {
     display: grid;
-    grid: repeat(2, 60px);
+    grid: repeat(2, 5rem);
 }
 .block_titre
 {
     margin: 0;
-    padding: 18rem 1rem;
-    width: 100%;
-    background-color: rgb(10, 10, 10);
+    padding: 14rem 0rem;
+    width: 90%;
     grid-column: 1/2;
 }
 .block_illustration
 {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
-    height: 94.6vh;
-    background-image: url(../static/img/Relique.png);
-    background-size: cover;
     border-style: none;
     grid-column: 2/2;
 }
+.skull_picture {
+    background-size: cover;
+    /* position: absolute; */
+    top: 41.5vh;
+    left: 80vh;
+    width: 26rem;
+    height: 35rem;
+}
 .scd-parti{
     margin-left: 4.5rem;
+    opacity: 0;
 }
 .webgl2 
 {
@@ -153,4 +156,13 @@ p.description
     font-size: var(--paragrapheSize);
     margin-left: 28vh;
     margin-top: 8vh;
+}
+
+.logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 1.2em;
+    margin-top: 2vw;
+    margin-left: 5vw;
+    color: #e4e4e4;
 }
