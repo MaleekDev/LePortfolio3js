@@ -292,12 +292,12 @@ tick()
 
 gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".titre", { 
+  gsap.from(".titre", { 
     scrollTrigger: {
       trigger: ".titre",
       toggleActions: "play restart restart reset",
-    //   scrub: true,
-    //   start: "top bottom",
+      scrub: true,
+    // start: "top bottom",
     // end: "top top"
       
     },
@@ -309,14 +309,35 @@ gsap.registerPlugin(ScrollTrigger);
   gsap.to(".scd-parti", { 
     scrollTrigger: {
       trigger: ".scd-parti",
-      toggleActions: "play restart restart reset",
+      toggleActions: "play resume restart reset",
       scrub: true,
-    //   start: "top bottom",
-    // end: "top top"
-      
+      markers: true,
+      start: "top bottom",
+      end: "-90px"
     },
-    x: 150,
+    x: 100,
     opacity: 1,
-    duration: 2
+    duration: 1.5
   });
 
+  gsap.to(".section.one > span", {
+    scrollTrigger: {
+        trigger: ".section.one > span",
+        toggleActions: "play restart restart reset",
+        // scrub: true,
+  },
+    y: 100,
+    opacity: 1,
+    duration: 1.2,
+  });
+
+  gsap.to(".skull_picture", {
+      scrollTrigger: {
+          trigger:".skull_picture",
+          toggleActions: "play restart restart reset",
+            scrub: true,
+      },
+      y: -50,
+    opacity: 1,
+    duration: 1.5
+  })
