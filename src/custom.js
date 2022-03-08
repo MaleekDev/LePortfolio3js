@@ -51,3 +51,12 @@ window.addEventListener('mousemove', e => {
   
   })
   console.log(centreYcurseur)
+// galerie d'image 
+function myFunction(imgs) {
+  var afficherImg = document.getElementById("afficherImg");
+  var imgText = document.getElementById("imgtext");
+  afficherImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  afficherImg.parentElement.style.display = "block";
+  afficherImg.parentElement.style.display = "grid";
+}

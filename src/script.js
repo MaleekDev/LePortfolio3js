@@ -9,6 +9,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, RoughEase, SlowMo);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Loaders
  */
@@ -20,8 +49,8 @@ const group1 = new THREE.Group()// création d'un groupe
  * Base
  */
 // Debug
-const gui = new dat.GUI()//Activer un panneau de controle
-const debugObject = {}
+// const gui = new dat.GUI()//Activer un panneau de controle
+// const debugObject = {}
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -116,10 +145,10 @@ directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(-2.498, 5, 3.894)
 scene.add(directionalLight)
 
-gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
-gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
-gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
+// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
+// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
 
 /**
  * Sizes
@@ -179,27 +208,55 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
-renderer.toneMapping = THREE.ReinhardToneMapping
+renderer.toneMapping = THREE.ACESFilmicToneMapping
 renderer.toneMappingExposure = 3
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-gui
-    .add(renderer, 'toneMapping', {
-        No: THREE.NoToneMapping,
-        Linear: THREE.LinearToneMapping,
-        Reinhard: THREE.ReinhardToneMapping,
-        Cineon: THREE.CineonToneMapping,
-        ACESFilmic: THREE.ACESFilmicToneMapping
-    })
-    .onFinishChange(() =>
-    {
-        renderer.toneMapping = Number(renderer.toneMapping)
-        updateAllMaterials()
-    })
-gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
+// gui
+//     .add(renderer, 'toneMapping', {
+//         No: THREE.NoToneMapping,
+//         Linear: THREE.LinearToneMapping,
+//         Reinhard: THREE.ReinhardToneMapping,
+//         Cineon: THREE.CineonToneMapping,
+//         ACESFilmic: THREE.ACESFilmicToneMapping
+//     })
+//     .onFinishChange(() =>
+//     {
+//         renderer.toneMapping = Number(renderer.toneMapping)
+//         updateAllMaterials()
+//     })
+// gui.add(renderer, 'toneMappingExposure').min(0).max(10).step(0.001)
+
+
+
+
+
+
+
+
+
+
+/**
+ * Responsive design canva
+ */
+
+ function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+
+
+
 
 
 
@@ -286,7 +343,7 @@ tick()
 //         toggleActions:"restart none none none"
 //     }, 
 //     x: 100,
-//     opacity: 1,
+//     eacity: 1,
 //     duration: 3
 //   });
 
@@ -311,8 +368,7 @@ gsap.registerPlugin(ScrollTrigger);
       trigger: ".scd-parti",
       toggleActions: "play resume restart reset",
       scrub: true,
-      markers: true,
-      start: "top bottom",
+      start: "90px bottom",
       end: "-90px"
     },
     x: 100,
@@ -331,13 +387,15 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 1.2,
   });
 
-  gsap.to(".skull_picture", {
-      scrollTrigger: {
-          trigger:".skull_picture",
+   gsap.to(".skull_picture", {
+       scrollTrigger: {
+           trigger:".skull_picture",
           toggleActions: "play restart restart reset",
-            scrub: true,
-      },
-      y: -50,
-    opacity: 1,
-    duration: 1.5
+             scrub: true,
+       },
+       y: -60,
+     opacity: 1,
+     duration: 1.5
   })
+
+//   gsap.from(".skull_picture", { x: 100, opacity: 0, duration: 2});

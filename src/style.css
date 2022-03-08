@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Krona+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+
 :root
 {
     --SizeTitre: 1.5em;
@@ -126,12 +129,20 @@ p.description
 }
 .block_illustration
 {
+    position: relative;
     display: flex;
-    width: 100%;
+    width: 90%;
     border-style: none;
     grid-column: 2/2;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+}
+
+#afficherImg{
+    width: 34vw;
 }
 
 .skull_picture {
@@ -139,10 +150,9 @@ p.description
     /* position: absolute; */
     top: 41.5vh;
     left: 80vh;
-    width: 26rem;
-    height: 35rem;
-    opacity: 0;
+    width: 22rem;
 }
+
 .scd-parti{
     margin-left: 4.5rem;
     opacity: 0;
@@ -154,15 +164,6 @@ p.description
     background-color: blue;
 }
 
-
-.show_picture {
-    /* background-size: cover;
-    position: absolute;
-    top: 64.5vh;
-    left: 80vh; */
-    width: 30rem;
-    height: 15rem;
-}
 .container_desc_projet 
 {
     position: absolute;
@@ -194,4 +195,46 @@ p.description
     margin-top: 2vw;
     margin-left: 5vw;
     color: #e4e4e4;
+}
+
+/* Les box preview */
+.container-box-preview {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 10rem);
+    column-gap: 0.2em;
+    row-gap: 0.2em;
+}
+
+.box-preview {
+    width: 100%;
+    height: 12rem;
+    margin: 0;
+    background: white;
+    transition: 500ms ease-out;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+.img-preview {
+    width: 180%;
+}
+.box-preview:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.box-preview:focus{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: rgba(195, 225, 255, 0.096) 0px 8px 24px;
+}
+.block_illustration > span {
+    text-transform: none;
+    opacity: 0.8;
+    font-size: 3vw;
+    font-family: 'Ephesis', cursive;
+}
+#imgtext {
+    position: relative;
+    transform: translate(2vw, -6vw);
 }
