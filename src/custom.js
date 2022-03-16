@@ -7,7 +7,6 @@
 
 
 
-
 // //Fonction de configuration d'une scene
 // function creerScene(elem) {
     
