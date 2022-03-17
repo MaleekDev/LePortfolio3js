@@ -18,15 +18,39 @@
 * {
     cursor: none;
 }
+/* Scroll bar  */
 
-@media screen and (min-width: 1400px) {
+/* width */
+::-webkit-scrollbar {
+    width: 0.6vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track { 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(237, 246, 255); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(27, 28, 29, 0.651); 
+  }
+
+
+@media screen and (min-width: 1200px) {
+
 
     .scroll-btn {
+        position: relative;
+        top: -10vw;
         color: var(--font-couleur);
         font-family: var(--font-title);
         text-transform: uppercase;
-        display: flex;
-        justify-content: center;
     }
     .curseur {
         mix-blend-mode: difference;
@@ -80,7 +104,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        height: 50vw;
+        height: 42vw;
         position: relative;
         font-family: var(--font-title);
         color: var(--font-couleur);
@@ -92,6 +116,7 @@
         margin-right: 21%;
     } */
     .section.one > span{
+        letter-spacing: 0.1em;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -115,6 +140,7 @@
 
     section > h1 
     {
+        letter-spacing: 0.1em;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -234,13 +260,13 @@
         margin-top: 8vh;
     }
 
-    .logo {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 900;
-        font-size: 1em;
-        margin-top: 2vw;
-        margin-left: 5vw;
-        color: #e4e4e4;
+    .logo > svg {
+        z-index: 9;
+        position: fixed;
+        width: 7vw;
+        mix-blend-mode: difference;
+        top: 3vw;
+        left: 5vw;
     }
 
     /* Les box preview */
@@ -323,7 +349,7 @@
     {
         display: flex;
         align-items: center;
-        height: 44rem;
+        height: 46vw;
         position: relative;
         font-family: 'Cabin', sans-serif;
         color: #ffffff;
@@ -477,15 +503,6 @@
         font-size: var(--paragrapheSize);
         margin-left: 28vh;
         margin-top: 8vh;
-    }
-
-    .logo {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 900;
-        font-size: 1em;
-        margin-top: 2vw;
-        margin-left: 5vw;
-        color: #e4e4e4;
     }
 
     /* Les box preview */
