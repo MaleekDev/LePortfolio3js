@@ -40,16 +40,25 @@
 //     return sceneInfo;
 //   }
 
-var curseur = document.getElementById('cursor1');
-var centreYcurseur = parseInt(getComputedStyle(curseur, null).height) / 2;
-var centreXcurseur = parseInt(getComputedStyle(curseur, null).width) / 2;
+var curseur = document.getElementById('curseur');
   
-window.addEventListener('mousemove', e => {
-    curseur.style.left = e.pageX - centreXcurseur + "px"
-      curseur.style.top = e.pageY - centreYcurseur + "px"
+window.addEventListener('mousemove', cursor )
+function cursor(e) {
+  curseur.style.left = e.pageX  + "px"
+  curseur.style.top = e.pageY + "px"
+}
+    
+// Modifier la souris au survol d'un élément cliquable
+
+var allImg = document.getElementById('cliquable');
+allImg.addEventListener("mouseover", mouseOver) 
+
+function mouseOver() {
+  var curseur = document.getElementById('curseur');
+  curseur.classList.add=(".interact");
   
-  })
-  console.log(centreYcurseur)
+}
+
 // galerie d'image 
 function myFunction(imgs) {
   var afficherImg = document.getElementById("afficherImg");

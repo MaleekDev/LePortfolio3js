@@ -279,8 +279,8 @@ const tick = () =>
      //Animate camera
      camera.position.y = - scrollY / sizes.height * 4 //scroll vertical et control de distance de scroll
 
-    // const parallaxX = cursor.x
-    // const parallaxY = - cursor.y
+    const parallaxX = cursor.x
+    const parallaxY = - cursor.y
 
     // cameraGroup.position.x = parallaxX
     
@@ -291,8 +291,11 @@ const tick = () =>
     // group1.rotation.z = Math.cos() * 2
     cameraGroup.position.y = -0.7
     cameraGroup.position.x = 1
-    group1.opacity = 0
-    cameraGroup.rotation.y = elapsedTime * 0.6
+
+    group1.rotation.y = parallaxX 
+    group1.rotation.x = - parallaxY 
+
+    cameraGroup.rotation.x = 0.8
 // gsap.to(group1.position, { duration: 2, delay: 0.5, opacity: 1})
 
    group1.position.x = 1
@@ -329,7 +332,7 @@ gsap.registerPlugin(ScrollTrigger);
     // end: "top top"
       
     },
-    x: 100,
+    x: 240,
     opacity: 1,
     duration: 2
   });
@@ -342,7 +345,7 @@ gsap.registerPlugin(ScrollTrigger);
       start: "90px bottom",
       end: "-90px"
     },
-    x: 100,
+    x: 20,
     opacity: 1,
     duration: 1.5
   });
@@ -353,7 +356,7 @@ gsap.registerPlugin(ScrollTrigger);
         toggleActions: "play restart restart reset",
         // scrub: true,
   },
-    y: 100,
+    x: 240,
     opacity: 1,
     duration: 1.2,
   });
@@ -369,4 +372,4 @@ gsap.registerPlugin(ScrollTrigger);
      duration: 1.5
   })
 
-//   gsap.from(".skull_picture", { x: 100, opacity: 0, duration: 2});
+   gsap.from(".titre.principale2", { x: 100, opacity: 0, duration: 2});
