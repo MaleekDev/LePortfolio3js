@@ -20,7 +20,7 @@ const group1 = new THREE.Group()// création d'un groupe
  * Base
  */
 // Debug
-// const gui = new dat.GUI()//Activer un panneau de controle
+const gui = new dat.GUI()//Activer un panneau de controle
 // const debugObject = {}
 
 // Canvas
@@ -63,8 +63,8 @@ const environmentMap = cubeTextureLoader.load([
 
 environmentMap.encoding = THREE.sRGBEncoding
 
-// scene.background = environmentMap
-// scene.environment = environmentMap
+scene.background = environmentMap
+scene.environment = environmentMap
 
 // debugObject.envMapIntensity = 2.5
 // gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
@@ -74,7 +74,7 @@ environmentMap.encoding = THREE.sRGBEncoding
  */
 
 gltfLoader.load(
-    '/models/crane/crane1.gltf',
+    '/models/crane/scene.gltf',
     (gltf) =>
     {
         gltf.scene.scale.set(0.8, 0.8, 0.8)
@@ -108,18 +108,18 @@ gltfLoader.load(
 /**
  * Lights
  */
-const directionalLight = new THREE.DirectionalLight('#ffffff', 0.475)
+const directionalLight = new THREE.DirectionalLight('#ffffff', 3.24)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.normalBias = 0.05
-directionalLight.position.set(-2.498, 5, 3.894)
+directionalLight.position.set(4.14, 1.681, 5)
 scene.add(directionalLight)
 
-// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
-// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
-// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
-// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
+gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
+gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
+gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
 
 /**
  * Sizes
@@ -156,9 +156,10 @@ const cameraGroup = new THREE.Group()
 scene.add(cameraGroup)
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(80, sizes.width / sizes.height, 0.1, 100)
 camera.position.set(0, -1, 4)
 cameraGroup.add(camera)
+
 // // Controls
 // const controls = new OrbitControls(camera, canvas)
 // controls.enableDamping = true;
@@ -237,12 +238,22 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 let scrollY = window.scrollY
 
-window.addEventListener('scroll', () =>
+window.addEventListener('scroll', (scroll) =>
     {
         scrollY = window.scrollY
+
+        //Animate camera on scroll
+        group1.position.y =  -scrollY / sizes.height //scroll vertical et control de distance de scroll
+    //  cameraGroup.position.x = scrollY / sizes.height *4 //scroll vertical et control de distance de scroll
+
+    cameraGroup.lookAt(group1.position)
     }
 )
 
+// if (group1.position.y =  -scrollY / sizes.height == true)
+//   {
+//     group1.position.x = 2
+//   }
 
 
 
@@ -274,10 +285,8 @@ const tick = () =>
 {
      const elapsedTime = clock.getElapsedTime()
 
-     
-
-     //Animate camera
-     camera.position.y = - scrollY / sizes.height * 4 //scroll vertical et control de distance de scroll
+    
+    
 
     const parallaxX = cursor.x
     const parallaxY = - cursor.y
@@ -350,7 +359,7 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 1.5
   });
 
-  gsap.to(".section.one > span", {
+  gsap.to(".section.one > span ", {
     scrollTrigger: {
         trigger: ".section.one > span",
         toggleActions: "play restart restart reset",
