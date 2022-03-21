@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger, ExpoScaleEase, RoughEase, SlowMo);
  * Loaders
  */
 const gltfLoader = new GLTFLoader()
-const cubeTextureLoader = new THREE.CubeTextureLoader() //telecharger les images de l'environnements
+// const cubeTextureLoader = new THREE.CubeTextureLoader() //telecharger les images de l'environnements
 const group1 = new THREE.Group()// création d'un groupe
 
 /**
@@ -52,19 +52,19 @@ const updateAllMaterials = () =>
  * Environment map
  */
 
-const environmentMap = cubeTextureLoader.load([
-    '/textures/environmentMaps/3/px.jpg',
-    '/textures/environmentMaps/3/nx.jpg',
-    '/textures/environmentMaps/3/py.jpg',
-    '/textures/environmentMaps/3/ny.jpg',
-    '/textures/environmentMaps/3/pz.jpg',
-    '/textures/environmentMaps/3/nz.jpg'
-])
+// const environmentMap = cubeTextureLoader.load([
+//     '/textures/environmentMaps/3/px.jpg',
+//     '/textures/environmentMaps/3/nx.jpg',
+//     '/textures/environmentMaps/3/py.jpg',
+//     '/textures/environmentMaps/3/ny.jpg',
+//     '/textures/environmentMaps/3/pz.jpg',
+//     '/textures/environmentMaps/3/nz.jpg'
+// ])
 
-environmentMap.encoding = THREE.sRGBEncoding
+// environmentMap.encoding = THREE.sRGBEncoding
 
-scene.background = environmentMap
-scene.environment = environmentMap
+// scene.background = environmentMap
+// scene.environment = environmentMap
 
 // debugObject.envMapIntensity = 2.5
 // gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
@@ -332,11 +332,11 @@ tick()
 
 gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from(".titre", { 
+  gsap.to(".titre", { 
     scrollTrigger: {
       trigger: ".titre",
       toggleActions: "play restart restart reset",
-      scrub: true,
+      // scrub: true,
     // start: "top bottom",
     // end: "top top"
       
@@ -365,7 +365,6 @@ gsap.registerPlugin(ScrollTrigger);
         toggleActions: "play restart restart reset",
         // scrub: true,
   },
-    x: 240,
     opacity: 1,
     duration: 1.2,
   });
@@ -382,3 +381,5 @@ gsap.registerPlugin(ScrollTrigger);
   })
 
    gsap.from(".titre.principale2", { x: 100, opacity: 0, duration: 2});
+
+   gsap.from(".scroll-btn", { z: -200, opacity: 0, duration: 2});
