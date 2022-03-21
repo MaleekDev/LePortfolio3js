@@ -6,6 +6,9 @@
     <title> Realistic render</title>
 </head>
 <body>
+    <div class="loader-page">
+
+    </div>
     <div class="curseur" id="curseur"></div>
     <main>
         
@@ -17,20 +20,26 @@
                 <span>Creative web developpement & 3D design</span>
                 <h1 class="titre principale">Maleek</h1>
         </section>
+        <!-- --------------------------------------------------------------------------------------- -->
         <div class="scroll-btn">
             <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_vjs5zX.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
         </div>
+        <!-- --------------------------------------------------------------------------------------- -->
         <section class="section job">
             
                 <div class="block_titre">
                     <div class="container_titre">
-                        <h2 class="titre principale2">Creative Web Developer</h2>
+                        <h2 class="titre principale2">Mes travaux</h2>
                             <div class="scd-parti">
                                 <span >Spécialisé en 3D</span>
-                                <p class="description">Motion design et animation 3d photoréaliste </p>
+                                <p class="description">Design et création de visuel 3d photoréaliste</p>
                                     <div class="contain_sousmenu">
-                                        <p class="ss-menu">Motion design </p>
-                                        <p class="ss-menu">Développement web </p>
+                                        <div class="cont-text-menu" onmouseover="modCurseur()">
+                                            <p class="ss-menu">Motion design </p>
+                                        </div>
+                                        <div class="cont-text-menu" onmouseover="modCurseur()">
+                                            <p class="ss-menu">Développement web</p>
+                                        </div>
                                     </div>
                             </div>
                     </div>
@@ -60,8 +69,22 @@
                     <img class="skull_picture"  id="afficherImg"></img>
                     <div id="imgtext"></div>
                 </div>
+
+                <div class="scroll-btn2">
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_vjs5zX.json" background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                </div>
         </section>
-        
+        <!-- --------------------------------------------------------------------------------------- -->
+        <section class="section perso">
+                <div class="div1">  </div>
+                <div class="div2">A propos de moi </div>
+                <div class="div3">Jeune developpeur front-end de 24 ans, je suis passioné de design 3D et de développement web. 
+                    C’est pourquoi je m’oriente   
+                </div>
+        </section>
+        <section class="section contact">
+            <p> Contactez moi sur contact@maleek-hodari.com </p>
+    </section>
     </main>
 </body>
 

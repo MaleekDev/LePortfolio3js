@@ -50,14 +50,15 @@ function cursor(e) {
     
 // Modifier la souris au survol d'un élément cliquable
 
-var allImg = document.getElementById('cliquable');
-allImg.addEventListener("mouseover", mouseOver) 
 
-function mouseOver() {
+function modCurseur() 
+{
   var curseur = document.getElementById('curseur');
-  curseur.classList.add=(".interact");
-  
+    curseur.className += " survol";
 }
+
+
+
 
 // galerie d'image 
 function myFunction(imgs) {
