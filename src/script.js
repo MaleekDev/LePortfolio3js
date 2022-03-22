@@ -20,7 +20,7 @@ const group1 = new THREE.Group()// création d'un groupe
  * Base
  */
 // Debug
-const gui = new dat.GUI()//Activer un panneau de controle
+// const gui = new dat.GUI()//Activer un panneau de controle
 // const debugObject = {}
 
 // Canvas
@@ -116,10 +116,10 @@ directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(4.14, 1.681, 5)
 scene.add(directionalLight)
 
-gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
-gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
-gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
+// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
+// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
 
 /**
  * Sizes
