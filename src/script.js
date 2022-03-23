@@ -1,6 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
-import * as dat from 'lil-gui'
+// import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 // Dependance gsap
 import { gsap } from "gsap";
@@ -21,7 +21,7 @@ const group1 = new THREE.Group()// création d'un groupe
  */
 // Debug
 // const gui = new dat.GUI()//Activer un panneau de controle
-// const debugObject = {}
+const debugObject = {}
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -83,7 +83,7 @@ gltfLoader.load(
         group1.add(gltf.scene)
         scene.add(group1)
 
-        gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+        // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
 
         updateAllMaterials()
     }
@@ -369,17 +369,6 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 1.2,
   });
 
-   gsap.to(".skull_picture", {
-       scrollTrigger: {
-           trigger:".skull_picture",
-          toggleActions: "play restart restart reset",
-             scrub: true,
-       },
-       y: -60,
-     opacity: 1,
-     duration: 1.5
-  })
-
-   gsap.from(".titre.principale2", { x: 100, opacity: 0, duration: 2});
+  //  gsap.from(".titre.principale2", { x: 100, opacity: 0, duration: 2});
 
    gsap.from(".scroll-btn", { z: -200, opacity: 0, duration: 2});

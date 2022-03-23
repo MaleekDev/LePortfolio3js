@@ -29,37 +29,78 @@
             
                 <div class="block_titre">
                     <div class="container_titre">
-                        <h2 class="titre principale2">Mes travaux</h2>
                             <div class="scd-parti">
                                 <span >Spécialisé en 3D</span>
                                 <p class="description">Design et création de visuel 3d photoréaliste</p>
                                     <div class="contain_sousmenu">
-                                        <div class="cont-text-menu" onmouseover="modCurseur()">
-                                            <p class="ss-menu">Motion design </p>
+                                        <div class="cont-text-menu " >
+                                            <li class="ss-menu ongletmotion" 
+                                            onclick="modeActif()">Motion design</li>
                                         </div>
-                                        <div class="cont-text-menu" onmouseover="modCurseur()">
-                                            <p class="ss-menu">Développement web</p>
+                                        <div class="cont-text-menu">
+                                            <li class="ss-menu ongletdev " onclick="modeDev()">Développement web</li>
                                         </div>
                                     </div>
                             </div>
                     </div>
-                            <div class="container-box-preview" draggable="true">
-                                <div class="box-preview 4" id='cliquable'>
-                                        <img class="img-preview" src="../static/img/skull_kid_cudi.gif" alt="Motion design neon skull" onclick="myFunction(this);">
+                        <div class="slider dev">
+                            <div class="slider-inner">
+                                <div class="slide">
+                                    <div class="box-preview 4" id='cliquable'>
+                                            <img class="img-preview" src="../static/img/skull_kid_cudi.gif" alt="Motion design neon skull" onclick="myFunction(this);">
+                                    </div>
                                 </div>
-                                <div class="box-preview 3" id='cliquable'>
-                                    <img class="img-preview" src="../static/img/compress_skull_21_svagebyMaleek.gif" alt="Motion design" onclick="myFunction(this);">
+                                <div class="slide">
+                                    <div class="box-preview 3" id='cliquable'>
+                                        <img class="img-preview" src="../static/img/compress_skull_21_svagebyMaleek.gif" alt="Motion design" onclick="myFunction(this);">
+                                    </div>
                                 </div>
-                                <div class="box-preview 5" id='cliquable'>
-                                    <img class="img-preview" src="../static/img/mercedes-animation.gif" alt="Mercedes réaliste" onclick="myFunction(this);">
+                                <div class="slide">
+                                    <div class="box-preview 5" id='cliquable'>
+                                        <img class="img-preview" src="../static/img/mercedes-animation.gif" alt="Mercedes réaliste" onclick="myFunction(this);">
+                                    </div>
                                 </div>
-                                <div class="box-preview 6" id='cliquable'>
-                                    <img class="img-preview" src="../static/img/loop tunnel.gif" alt="Motion design" onclick="myFunction(this);">
+                                <div class="slide">
+                                    <div class="box-preview 6" id='cliquable'>
+                                        <img class="img-preview" src="../static/img/loop tunnel.gif" alt="Motion design" onclick="myFunction(this);">
+                                    </div>
                                 </div>
+                                <div class="slide">
                                 <div class="box-preview 2" id='cliquable'>
                                     <img class="img-preview" src="..\static\image\couverture_nissan.jpg" alt="Nissan" onclick="myFunction(this);">
                                 </div>
+                                </div>
                             </div>
+                        </div> 
+
+                            <div class="slider motion">
+                                <div class="slider-inner">
+                                  <div class="slide devsection">
+                                    <img class=" box-preview slide__img slide__img--1" src="../static/img/skull_kid_cudi.gif">
+                                        <span class="text-slide">Motion design neon skull</span>
+                                        <!-- -------------------------------------------------------------------------- -->
+                                            <img class=" box-preview slide__imgdev slide__img--2" src="../static/image/couverture_nissan.jpg">
+                                                <span class="text-slide slide__imgdev">21 savage intro</span>
+                                  </div>
+                                  <div class="slide">
+                                    <img class=" box-preview slide__img slide__img--2" src="../static/img/compress_skull_21_svagebyMaleek.gif">
+                                    <span class="text-slide">21 savage intro</span>
+                                  </div>
+                                  <div class="slide">
+                                    <img class=" box-preview slide__img slide__img--3" src="../static/img/mercedes-animation.gif">
+                                    <span class="text-slide">Mercedes drive</span>
+                                  </div>
+                                  <div class="slide">
+                                    <img class=" box-preview slide__img slide__img--4" src="../static/img/loop tunnel.gif">
+                                    <span class="text-slide">Loop tunnel</span>
+                                  </div>
+                                </div>
+                            </div>
+
+                           
+
+
+
                         </div>
                 </div>
 
@@ -68,8 +109,8 @@
         <section class="section perso">
                 <div class="div1">  </div>
                 <div class="div2">A propos de moi </div>
-                <div class="div3">Jeune developpeur front-end de 24 ans, je suis passioné de design 3D et de développement web. 
-                    C’est pourquoi je m’oriente   
+                <div class="div3">Je suis front-end developper de 24 ans, passioné de design 3D et de développement web. Je travaille essentiellement sur three JS pour l'intégration 3D, Gsap pour les animations et Angular ou Wordpress pour de plus gros projet.
+                
                 </div>
         </section>
         <section class="section contact">

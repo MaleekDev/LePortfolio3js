@@ -43,29 +43,103 @@
 var curseur = document.getElementById('curseur');
   
 window.addEventListener('mousemove', cursor )
-function cursor(e) {
-  curseur.style.left = e.pageX  + "px"
-  curseur.style.top = e.pageY + "px"
-}
+  function cursor(e) {
+    curseur.style.left = e.pageX  + "px"
+    curseur.style.top = e.pageY + "px"
+  }
     
 // Modifier la souris au survol d'un élément cliquable
 
 
-function modCurseur() 
-{
-  var curseur = document.getElementById('curseur');
-    curseur.className += " survol";
+// function modCurseur() 
+// {
+//   var curseur = document.getElementById('curseur');
+//     curseur.className += " survol";
+// }
+
+
+
+//Afficher et dissimuler section galerie
+
+//  draggable galerie d'image 
+let draggableSlider = function () {
+  // DOM element(s)
+  let slider = document.querySelector(".slider"),
+    innerSlider = document.querySelector(".slider-inner");
+
+  // Slider variables
+  let pressed = false,
+    startX,
+    x;
+
+  // Mousedown eventlistener
+  slider.addEventListener("mousedown", (e) => {
+    pressed = true;
+    startX = e.offsetX - innerSlider.offsetLeft;
+    slider.style.cursor = "grabbing";
+  });
+
+  // mouseneter
+  slider.addEventListener("mouseenter", () => {
+    slider.style.cursor = "grab";
+  });
+
+  // mouseup
+  slider.addEventListener("mouseup", () => {
+    slider.style.cursor = "grab";
+  });
+
+  // window
+  window.addEventListener("mouseup", () => {
+    pressed = false;
+  });
+
+  // Slider mousemove event listener
+  slider.addEventListener("mousemove", (e) => {
+    if (!pressed) return;
+    e.preventDefault();
+
+    x = e.offsetX;
+
+    innerSlider.style.left = `${x - startX}px`;
+
+    checkBoundry();
+  });
+
+  // Check boundry of outer and inner sliders
+  function checkBoundry() {
+    let outer = slider.getBoundingClientRect(),
+      inner = innerSlider.getBoundingClientRect();
+
+    if (parseInt(innerSlider.style.left) > 0) {
+      innerSlider.style.left = "0px";
+    } else if (inner.right < outer.right) {
+      innerSlider.style.left = `-${inner.width - outer.width}px`;
+    }
+  }
+};
+
+// Invoke code
+draggableSlider();
+
+
+
+// Cacher
+
+let ongletDev = document.getElementsByClassName('devonglet')
+
+let sectionMotion = document.querySelector(".slider.motion")
+let sectionDev = document.querySelector(".slider.dev")
+
+let selection = document.querySelector("li.ss-menu")
+let selectMotion = document.querySelector(".ss-menu.ongletmotion")
+
+
+function modeActif() {
+  selectMotion.classList.add("actif")
 }
 
-
-
-
-// galerie d'image 
-function myFunction(imgs) {
-  var afficherImg = document.getElementById("afficherImg");
-  var imgText = document.getElementById("imgtext");
-  afficherImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  afficherImg.parentElement.style.display = "block";
-  afficherImg.parentElement.style.display = "grid";
+let selectDev = document.querySelector(".ss-menu.ongletdev")
+function modeDev(){
+  selectDev.classList.add("actif")
 }

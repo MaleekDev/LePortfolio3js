@@ -15,9 +15,17 @@
     --font-couleur: #D6D8E1;
 }
 
-* {
+*, li {
     cursor: none;
+    list-style: none;
 }
+
+li.ss-menu.actif {
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+
+
 /* Scroll bar  */
 
 /* width */
@@ -42,23 +50,37 @@
   }
 
 
-@media screen and (min-width: 1300px) 
-{
+@media screen and (min-width: 1300px) {
+    .slider.dev{
+        display: none;
+    }
+    .slider.motion{
+        display: none;
+    }
+    .slider{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    width: 80%;
+    height: 20vh;
+    overflow: hidden; 
+}
 
     .contain_sousmenu {
         display: grid;
         margin-top: 2em;
         text-transform: none;
-        width: 32vw;
-        border-bottom: 1px solid rgb(128, 128, 128);
+        width: 14vw;
     }
 
     .ss-menu{
+        font-size:6vw;
         position: relative;
         width: max-content;
         padding-bottom: 0.2em;
     }
     .cont-text-menu:nth-child(1) {
+        margin-right: 1em;
         grid-column: 1/2;
         width: fit-content;
         font-family: var(--font);
@@ -67,7 +89,7 @@
     }
 
     .cont-text-menu:nth-child(2) {
-        grid-column: 2/2;
+        grid-column: 1/2;
         width: fit-content;
         font-family: var(--font);
         font-size: 1.8vw;
@@ -77,25 +99,29 @@
         content: "";
         position: absolute;
         left: 0px;
-        bottom: 0;
-        height: 3px;
+        bottom: -3px;
+        height: 2px;
         width: 100%;
         background: rgb(255, 255, 255);
         transform: scaleX(0);
-        transform-origin: left;
+        transform-origin: right;
         
-        opacity: 0.2;
+        opacity: 0.7;
         
         transition: transform 500ms ease;
     }
     .cont-text-menu:hover .ss-menu::after {
         transform: scaleX(1);
-        font-weight: 800;
+        transform-origin: left;
         opacity: 1;
+        z-index: 5;
     }
-
+    .cont-text-menu .ss-menu.actif::after{
+        transform: scaleX(1);
+        background: rgb(255, 255, 255);
+    }
     .scroll-btn {
-        transform: translate(-1vw, 4vw) !important;
+        transform: translate(-4vw, 13vw) !important;
         position: relative;
         top: -10vw;
         color: var(--font-couleur);
@@ -189,7 +215,7 @@
 
     .titre.principale {
         font-size: 3vw !important;
-        transform: translate(3vw, 1vw) !important;
+        transform: translate(2.2vw, 1.4vw) !important;
     }
     
     .titre.principale2 {
@@ -225,7 +251,7 @@
     {
         top: -2vw !important;
         width: 100%;
-        height: 62vw !important;
+        height: 71vw !important;
         margin: 0;
         padding: 6vw 0vw;
         background-color: transparent;
@@ -255,6 +281,7 @@
                 background: url(https://wallpapersmug.com/u/2cdbd6/skull-statue-art.jpg);
                 background-size: contain;
                 background-position: center;
+                text-transform: none;
             }
 
             .div1 { 
@@ -269,7 +296,7 @@
             }
 
             .div3 { 
-            font-size: 1.2vw;
+            font-size: 1.5vw;
             font-family: var(--font);
             width: 33vw;
             grid-area: 1 / 4 / 6 / 6; 
@@ -380,15 +407,90 @@
     }
 
     /* Les box preview */
-    .container-box-preview {
-        margin-top: 2em;
-        margin-left: 6vw;
-        height: 19vw;
-        display: grid;
-        grid-template-columns: repeat(3, 11rem);
-        column-gap: 11.01em;
-        row-gap: 0.01em;
+    img.slide__imgdev {
+        display: none;
     }
+
+    span.slide__imgdev {
+        display: none;
+    }
+
+    .text-slide {
+        position: absolute;
+        transform: translate(28px, -57px);
+        font-family: var(--font);
+        font-size: 1.5vw;
+    }
+
+    .developpementWeb{
+        display: block;
+    }
+
+    .slider {
+        position: absolute;
+        left: 0%;
+        top: 30%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      
+      .slider-inner {
+        margin-top: 2em;
+        margin-left: 3vw;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 140%;
+        display: grid;
+        grid-template-columns: repeat(6, 11rem);
+        row-gap: 0.01em;
+        gap: 21.5rem;
+        pointer-events: none;
+        transition: 0s ease-in;
+        overflow: visible;
+      }
+      
+      .slide {
+        width: 31vw;
+        height: 100%;
+      }
+      
+      /* .slide__img {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .slide__img--1 {
+        background-color: aliceblue;
+      }
+      
+      .slide__img--2 {
+        background-color: tomato;
+      }
+      
+      .slide__img--3 {
+        background-color: aqua;
+      }
+      
+      .slide__img--4 {
+        background-color: blueviolet;
+      }
+      
+      .slide__img--5 {
+        background-color: yellow;
+      }
+      
+      .slide__img--6 {
+        background-color: turquoise;
+      }
+      
+      .slide__img--7 {
+        background-color: cornflowerblue;
+      } */
+      
 
     .box-preview 
     {
@@ -400,6 +502,7 @@
         display: flex;
         overflow: hidden;
         justify-content: center;
+        pointer-events: none;
     }
 
     .img-preview {
@@ -407,11 +510,9 @@
     }
     .box-preview:hover{
         cursor: pointer;
-        transform: scale(1.05);
     }
     .box-preview:focus{
         cursor: pointer;
-        transform: scale(1.05);
         box-shadow: rgba(195, 225, 255, 0.096) 0px 8px 24px;
     }
     .block_illustration > span {
@@ -462,7 +563,7 @@
 
     .scroll-btn {
         opacity: 1;
-        transform: translate(-120px, 137px) !important;
+        transform: translate(-120px, 137px) ;
     }
 
     .webgl
@@ -488,7 +589,6 @@
     .section.one {
         transform: translate(2px, 155px);
         display: flex;
-        justify-content: flex-start;
     }
 
     .section.one > span {
@@ -503,7 +603,7 @@
 
     .titre.principale {
         font-size: 7vw;
-        transform: translate(12vw, 14vw) !important;
+        transform: translate(12vw, 14vw) ;
     }
 
     section > h1 
@@ -522,7 +622,7 @@
         display: block;
         top: 14vw;
         width: 100%;
-        height: 62rem;
+        height: 60rem;
         margin: 0;
         padding: 1vw 0vw;
         background-color: transparent;
@@ -642,16 +742,6 @@
     }
 
     /* Les box preview */
-    .container-box-preview {
-        margin-top: 2em;
-        margin-left: 3vw;
-        height: 19vw;
-        display: grid;
-        grid-template-columns: repeat(6, 11rem);
-        column-gap: 11.01em;
-        row-gap: 0.01em;
-        overflow: visible;
-    }
 
     .box-preview {
         width: 80%;
