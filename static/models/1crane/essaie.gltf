@@ -1,0 +1,134 @@
+{
+    "asset" : {
+        "copyright" : "Maleek",
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "craneBillelis_Skull_Pack_Model_4_simplififier1",
+            "rotation" : [
+                0.7929044365882874,
+                -0.16,
+                0.2923274636268616,
+                0.502099871635437
+            ],
+            "scale" : [
+                0.05,
+                0.05,
+                0.05
+            ],
+            "translation" : [
+                0,
+                0,
+                0
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Default OBJ",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    9,
+                    9,
+                    9,
+                    1
+                ],
+                "metallicFactor" : 1.0001,
+                "roughnessFactor" : 0.05
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "craneBillelis_Skull_Pack_Model_4_simplififier1",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 179643,
+            "max" : [
+                33.938236236572266,
+                39.31975555419922,
+                19.98880386352539
+            ],
+            "min" : [
+                -34.051361083984375,
+                -47.5594367980957,
+                -54.201019287109375
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 179643,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 179643,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 209793,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2155716,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2155716,
+            "byteOffset" : 2155716
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1437144,
+            "byteOffset" : 4311432
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 839172,
+            "byteOffset" : 5748576
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 6587748,
+            "uri" : "essaie.bin"
+        }
+    ]
+}

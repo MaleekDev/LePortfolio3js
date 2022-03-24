@@ -1,6 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
-// import * as dat from 'lil-gui'
+import * as dat from 'lil-gui'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 // Dependance gsap
 import { gsap } from "gsap";
@@ -20,7 +20,7 @@ const group1 = new THREE.Group()// création d'un groupe
  * Base
  */
 // Debug
-// const gui = new dat.GUI()//Activer un panneau de controle
+const gui = new dat.GUI()//Activer un panneau de controle
 const debugObject = {}
 
 // Canvas
@@ -29,7 +29,6 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 // const sceneInfo = makeScene(document.querySelector('#scene'));
-
 /**
  * Update all materials
  */
@@ -39,7 +38,7 @@ const updateAllMaterials = () =>
     {
         if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
         {
-            // child.material.envMap = environmentMap
+            child.material.envMap = environmentMap
             child.material.envMapIntensity = debugObject.envMapIntensity
             child.material.needsUpdate = true
             child.castShadow = true
@@ -68,22 +67,47 @@ const updateAllMaterials = () =>
 
 // debugObject.envMapIntensity = 2.5
 // gui.add(debugObject, 'envMapIntensity').min(0).max(10).step(0.001).onChange(updateAllMaterials)
+function setLighting(){
+
+  new RGBELoader()
+      .setDataType( THREE.UnsignedByteType )
+      .setPath( 'static/hdri/' )
+      .load( 'snow_env.hdr', function ( texture ) {
+
+      var envMap = pmremGenerator.fromEquirectangular( texture ).texture;
+
+      scene.background = envMap;
+      scene.environment = envMap;
+
+      texture.dispose();
+      pmremGenerator.dispose();
+  })
+  var pmremGenerator = new THREE.PMREMGenerator( renderer );
+  pmremGenerator.compileEquirectangularShader();
+
+}
+
+
+
 
 /**
  * Models
  */
 
+
+
 gltfLoader.load(
-    '/models/crane/scene.gltf',
+    '/models/crane/crane1.gltf',
     (gltf) =>
     {
-        gltf.scene.scale.set(0.8, 0.8, 0.8)
-        gltf.scene.position.set(0, -2.5, 0)
+        gltf.scene.scale.set(1, 1, 1)
+        gltf.scene.position.set(0, -3, 0)
         gltf.scene.rotation.y = -0.5
         group1.add(gltf.scene)
         scene.add(group1)
 
-        // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+        gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
+        gui.add(gltf.scene.position, 'y').min(- -500).max(Math.PI).step(0.001).name('position')
 
         updateAllMaterials()
     }
@@ -108,18 +132,27 @@ gltfLoader.load(
 /**
  * Lights
  */
-const directionalLight = new THREE.DirectionalLight('#ffffff', 3.24)
+const directionalLight = new THREE.DirectionalLight('#ffecd2',7.47)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
-directionalLight.shadow.normalBias = 0.05
-directionalLight.position.set(4.14, 1.681, 5)
+directionalLight.shadow.normalBias = 0.08
+directionalLight.position.set(4.14, 5, 39.808)
 scene.add(directionalLight)
 
-// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
-// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
-// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
-// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+const directionalLight2 = new THREE.DirectionalLight('#65a6ff',9)
+directionalLight2.castShadow = true
+directionalLight2.shadow.camera.far = 15
+directionalLight2.shadow.mapSize.set(1024, 1024)
+directionalLight2.shadow.normalBias = 0.09
+directionalLight2.position.set(75.201, 1.681, 5)
+scene.add(directionalLight2)
+
+
+gui.add(directionalLight, 'intensity').min(0).max(100).step(0.001).name('lightIntensity')
+gui.add(directionalLight.position, 'x').min(- 5).max(100).step(0.001).name('lightX')
+gui.add(directionalLight.position, 'y').min(- 5).max(100).step(0.001).name('lightY')
+gui.add(directionalLight.position, 'z').min(- 5).max(100).step(0.001).name('lightZ')
 
 /**
  * Sizes
@@ -181,7 +214,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
 renderer.toneMapping = THREE.ACESFilmicToneMapping
-renderer.toneMappingExposure = 3
+renderer.toneMappingExposure = 1.25
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
 renderer.setSize(sizes.width, sizes.height)
@@ -285,7 +318,7 @@ const tick = () =>
 {
      const elapsedTime = clock.getElapsedTime()
 
-    
+     group1.rotation.y = 0.25 * elapsedTime
     
 
     const parallaxX = cursor.x
@@ -301,7 +334,7 @@ const tick = () =>
     cameraGroup.position.y = -0.7
     cameraGroup.position.x = 1
 
-    group1.rotation.y = parallaxX 
+    // group1.rotation.y = parallaxX //rotation en suivant la souris
     group1.rotation.x = - parallaxY 
 
     cameraGroup.rotation.x = 0.8

@@ -174,7 +174,7 @@ li.ss-menu.actif {
     {
         
         overflow-x: hidden;
-        background: rgb(138, 138, 138);
+        background: radial-gradient(circle, rgb(17, 17, 19) 0%, rgb(10, 10, 10) 39%, rgba(0,0,0,1) 100%);
     }
 
 
@@ -560,7 +560,7 @@ li.ss-menu.actif {
     {
         
         overflow-x: hidden;
-        background: black;
+        background: radial-gradient(circle, rgba(35,34,38,1) 0%, rgba(22,22,22,1) 39%, rgba(0,0,0,1) 100%);
     }
 
     .logo {
