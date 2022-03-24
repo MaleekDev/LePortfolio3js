@@ -1,4 +1,4 @@
-# Three.js Journey
+# Portfolio Maleek H
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
