@@ -126,20 +126,31 @@ draggableSlider();
 
 // Cacher
 
-let ongletDev = document.getElementsByClassName('devonglet')
+// let ongletDev = document.getElementsByClassName('devonglet')
 
-let sectionMotion = document.querySelector(".slider.motion")
-let sectionDev = document.querySelector(".slider.dev")
+// let sectionMotion = document.querySelector(".slider.motion")
+// let sectionDev = document.querySelector(".slider.dev")
 
-let selection = document.querySelector("li.ss-menu")
-let selectMotion = document.querySelector(".ss-menu.ongletmotion")
+// let selection = document.querySelector("li.ss-menu")
+// let selectMotion = document.querySelector(".ss-menu.ongletmotion")
 
 
-function modeActif() {
-  selectMotion.classList.add("actif")
-}
+// function modeActif() {
+//   selectMotion.classList.add("actif")
+// }
 
 let selectDev = document.querySelector(".ss-menu.ongletdev")
-function modeDev(){
-  selectDev.classList.add("actif")
-}
+  function modeDev() {
+      selectDev.classList.add("actif")
+    }
+
+    // Page loader 
+
+    const loader = document.querySelector('.loader-page')
+
+window.addEventListener('load', () => {
+
+  loader.classList.remove('actif')
+  loader.classList.add('hide')
+})
+  

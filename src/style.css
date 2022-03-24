@@ -24,8 +24,16 @@ li.ss-menu.actif {
     font-weight: 700;
     color: rgb(255, 255, 255);
 }
-
-
+.loader-page.actif {
+    position: fixed;
+    z-index: 10;
+    /* background: red; */
+    width: 100%;
+    height: 100%;
+}
+.hide{
+    display: none;
+}
 /* Scroll bar  */
 
 /* width */
@@ -52,18 +60,18 @@ li.ss-menu.actif {
 
 @media screen and (min-width: 1300px) {
     .slider.dev{
-        display: none;
+        display: block;
     }
     .slider.motion{
         display: none;
     }
     .slider{
-    position: absolute;
-    left: 10%;
-    top: 30%;
-    width: 80%;
-    height: 20vh;
-    overflow: hidden; 
+        position: absolute;
+        left: 0%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
 }
 
     .contain_sousmenu {
@@ -214,8 +222,12 @@ li.ss-menu.actif {
     }
 
     .titre.principale {
+        display: block !important;
         font-size: 3vw !important;
         transform: translate(2.2vw, 1.4vw) !important;
+    }
+    .titre.principale_mobile{
+        display: none;
     }
     
     .titre.principale2 {
@@ -251,7 +263,7 @@ li.ss-menu.actif {
     {
         top: -2vw !important;
         width: 100%;
-        height: 71vw !important;
+        height: 86vw !important;
         margin: 0;
         padding: 6vw 0vw;
         background-color: transparent;
@@ -325,8 +337,8 @@ li.ss-menu.actif {
     .block_titre
     {
         margin: 0;
-        padding: 14rem 0rem;
-        width: 90%;
+        padding: 2rem 1rem !important;
+        width: 100%;
         grid-column: 1/2;
     }
     .block_illustration
@@ -426,14 +438,14 @@ li.ss-menu.actif {
         display: block;
     }
 
-    .slider {
+    .slider{
         position: absolute;
         left: 0%;
-        top: 30%;
+        top: 46%;
         width: 100%;
         height: 100%;
         overflow: hidden;
-      }
+    }
       
       
       .slider-inner {
@@ -599,11 +611,13 @@ li.ss-menu.actif {
         opacity: 0;
         font-size: var(--paragrapheSize);
         transform: translate(43px, 39px);
-}
-
-    .titre.principale {
-        font-size: 7vw;
-        transform: translate(12vw, 14vw) ;
+    }
+    .titre.principale{
+        display: none;
+    }
+    .titre.principale_mobile {
+        font-size: 7vw !important;
+        transform: translate(12vw, 14vw) !important;
     }
 
     section > h1 
@@ -619,7 +633,7 @@ li.ss-menu.actif {
 
     .section.job 
     {
-        display: block;
+        
         top: 14vw;
         width: 100%;
         height: 60rem;
@@ -653,7 +667,7 @@ li.ss-menu.actif {
     }
 
     .container_titre {
-        transform: translate(188px, 0px);
+        transform: translate(190px, -273px);
     }
 
     p.description
@@ -744,7 +758,7 @@ li.ss-menu.actif {
     /* Les box preview */
 
     .box-preview {
-        width: 80%;
+        width: 100%;
         height: 16rem;
         margin: 0;
         background: transparent;
@@ -771,8 +785,26 @@ li.ss-menu.actif {
         font-size: 3vw;
         font-family: 'Ephesis', cursive;
     }
+
     #imgtext {
         position: relative;
         transform: translate(-9vw, -5vw);
     }
+/* SLIDER MOBILE GALERIE */
+    .slider-inner {
+        margin-top: 2em;
+        margin-left: 3vw;
+        position: absolute;
+        left: 0;
+        top: 64vw;
+        height: 100%;
+        width: 120%;
+        display: grid;
+        grid-template-columns: repeat(6, 11rem);
+        row-gap: 0.01em;
+        gap: 21.5rem;
+        pointer-events: none;
+        transition: 0s ease-in;
+        overflow: visible;
+      }
 }
