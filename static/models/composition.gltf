@@ -1,0 +1,340 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Billelis_Skull_Pack_Model_4_simplififier2",
+            "rotation" : [
+                0.688916027545929,
+                -0.2501879334449768,
+                0.07727042585611343,
+                0.6758919954299927
+            ],
+            "scale" : [
+                0.059063270688056946,
+                0.05906326696276665,
+                0.05906326696276665
+            ],
+            "translation" : [
+                -0.22352704405784607,
+                -0.3483433723449707,
+                -0.10227856040000916
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "FemaleHead2",
+            "rotation" : [
+                0.688916027545929,
+                -0.2501879334449768,
+                0.07727042585611343,
+                0.6758919954299927
+            ],
+            "scale" : [
+                0.059063270688056946,
+                0.05906326696276665,
+                0.05906326696276665
+            ],
+            "translation" : [
+                -0.22352704405784607,
+                -0.3483433723449707,
+                -0.10227856040000916
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Sphere.001",
+            "rotation" : [
+                -0.0527745820581913,
+                0.14844423532485962,
+                -0.09349335730075836,
+                0.9830759763717651
+            ],
+            "scale" : [
+                0.32957422733306885,
+                0.32957419753074646,
+                0.32957422733306885
+            ],
+            "translation" : [
+                -1.6251592636108398,
+                0.40761280059814453,
+                0.9984863996505737
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0.3838028311729431,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Default OBJ.002",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Billelis_Skull_Pack_Model_4_simplififier2",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "FemaleHead2",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "Sphere.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "compo uv_masque_BaseColor.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 828608,
+            "max" : [
+                33.65723419189453,
+                39.12690353393555,
+                19.430906295776367
+            ],
+            "min" : [
+                -33.84950256347656,
+                -47.21794128417969,
+                -53.947208404541016
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 828608,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 828608,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5125,
+            "count" : 1242912,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 1219008,
+            "max" : [
+                26.63888931274414,
+                48.967308044433594,
+                43.54020309448242
+            ],
+            "min" : [
+                -32.68082809448242,
+                0.7964485287666321,
+                -30.216825485229492
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 1219008,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 1219008,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5125,
+            "count" : 1828512,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 559,
+            "max" : [
+                0.9999997019767761,
+                1,
+                0.9999994039535522
+            ],
+            "min" : [
+                -0.9999990463256836,
+                -1,
+                -0.9999987483024597
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 559,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 559,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 2880,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 9943296,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9943296,
+            "byteOffset" : 9943296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6628864,
+            "byteOffset" : 19886592
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4971648,
+            "byteOffset" : 26515456
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 14628096,
+            "byteOffset" : 31487104
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 14628096,
+            "byteOffset" : 46115200
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9752064,
+            "byteOffset" : 60743296
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 7314048,
+            "byteOffset" : 70495360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6708,
+            "byteOffset" : 77809408
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6708,
+            "byteOffset" : 77816116
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4472,
+            "byteOffset" : 77822824
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 5760,
+            "byteOffset" : 77827296
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 77833056,
+            "uri" : "composition.bin"
+        }
+    ]
+}
