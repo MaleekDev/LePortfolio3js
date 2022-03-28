@@ -276,7 +276,8 @@ window.addEventListener('scroll', (scroll) =>
         scrollY = window.scrollY
 
         //Animate camera on scroll
-        group1.position.y =  -scrollY / sizes.height //scroll vertical et control de distance de scroll
+        group1.position.y =  -scrollY / sizes.height
+         //scroll vertical et control de distance de scroll
     //  cameraGroup.position.x = scrollY / sizes.height *4 //scroll vertical et control de distance de scroll
 
     cameraGroup.lookAt(group1.position)
