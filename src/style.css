@@ -32,8 +32,9 @@ li.ss-menu.actif {
     height: 100%;
 }
 .hide{
-    display: none;
+    display: none !important;
 }
+
 /* Scroll bar  */
 
 /* width */
@@ -59,6 +60,29 @@ li.ss-menu.actif {
 
 
 @media screen and (min-width: 1300px) {
+
+    .galerie.web-design {
+        padding: 2em 1em;
+        top: -17vw;
+        width: 111%;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 8fr);
+        background-color: #e8e8e8;
+    }
+    
+    figure:nth-child(1){
+        width: fit-content;
+        grid-column: 1/2;
+        overflow-y: hidden;
+    }
+    figure:nth-child(2){
+        width: fit-content;
+        grid-column: 2/2;
+        justify-self: end;
+        overflow-y: hidden;
+    }
+
     .slider.dev{
         display: block;
     }
@@ -453,9 +477,9 @@ li.ss-menu.actif {
         margin-left: 3vw;
         position: absolute;
         left: 0;
-        top: 0;
+        top: 1vw !important;
         height: 100%;
-        width: 140%;
+        width: 196%;
         display: grid;
         grid-template-columns: repeat(6, 11rem);
         row-gap: 0.01em;
@@ -506,8 +530,8 @@ li.ss-menu.actif {
 
     .box-preview 
     {
-        width: 38vw !important;
-        height: 38vw !important;
+        width: fit-content !important;
+        height: fit-content !important;
         margin: 0;
         background: transparent;
         transition: 500ms ease-out;
@@ -798,7 +822,7 @@ li.ss-menu.actif {
         left: 0;
         top: 64vw;
         height: 100%;
-        width: 120%;
+        width: 196%;
         display: grid;
         grid-template-columns: repeat(6, 11rem);
         row-gap: 0.01em;
