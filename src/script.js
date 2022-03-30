@@ -38,7 +38,7 @@ const updateAllMaterials = () =>
     {
         if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
         {
-            child.material.envMap = environmentMap
+            // child.material.envMap = environmentMap
             child.material.envMapIntensity = debugObject.envMapIntensity
             child.material.needsUpdate = true
             child.castShadow = true
@@ -406,3 +406,35 @@ gsap.registerPlugin(ScrollTrigger);
   //  gsap.from(".titre.principale2", { x: 100, opacity: 0, duration: 2});
 
    gsap.from(".scroll-btn", { z: -200, opacity: 0, duration: 2});
+
+
+
+   let galerieDev = document.querySelector('.galerie.web-design'); 
+   let maquetteDev = document.querySelector('.webdev_maquette')
+   let maquetteDevtwo = document.querySelector('.webdev_maquette2')
+   
+   gsap.to( maquetteDev, {
+    scrollTrigger: {
+      trigger: galerieDev,
+      scrub: true,
+      pin: true,
+      start: "top top",
+      end: "+=100%"
+    },
+    yPercent: -45, 
+    transformOrigin: "top bottom", 
+    ease: "easeOut",
+  });
+
+  gsap.to( maquetteDevtwo, {
+    scrollTrigger: {
+      trigger: galerieDev,
+      scrub: true,
+      pin: true,
+      start: "top top",
+      end: "+=100%"
+    },
+    yPercent: -45, 
+    transformOrigin: "top bottom", 
+    ease: "easeOut",
+  });
