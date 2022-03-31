@@ -170,5 +170,4 @@ btnMotion.addEventListener("click", () => {
 btnDev.addEventListener("click", () => {
   sectionMotion.style.display="none";
   sectionWebdev.style.display="block";
-  
 })
