@@ -15,6 +15,10 @@
     --font-couleur: #D6D8E1;
 }
 
+.actif {
+    display: block !important;
+}
+
 *, li {
     cursor: none;
     list-style: none;
@@ -62,6 +66,7 @@ li.ss-menu.actif {
 @media screen and (min-width: 1300px) {
 
     .galerie.web-design {
+        display: block;
         padding: 2em 1em;
         top: -17vw;
         width: 111%;
@@ -87,7 +92,7 @@ li.ss-menu.actif {
         display: block;
     }
     .slider.motion{
-        display: none;
+        display: block;
     }
     .slider{
         position: absolute;
@@ -486,7 +491,7 @@ li.ss-menu.actif {
         gap: 21.5rem;
         pointer-events: none;
         transition: 0s ease-in;
-        overflow: visible;
+        overflow: hidden;
       }
       
       .slide {

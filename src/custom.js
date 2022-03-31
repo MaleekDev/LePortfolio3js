@@ -156,10 +156,19 @@ window.addEventListener('load', () => {
   
 // Cacher le bock motion design en cliquant sur developpement web
 
-let sectionDev = document.querySelector(".slider.dev")
+let sectionMotion = document.querySelector(".slider.motion")
+let sectionWebdev = document.querySelector(".galerie.web-design")
 let btnMotion = document.querySelector(".ongletmotion")
+let btnDev = document.querySelector(".ongletdev")
+
 
 btnMotion.addEventListener("click", () => {
+  sectionMotion.style.display="none";
+  sectionWebdev.style.display="block";
+})
 
-  sectionDev.classList.add('hide')
+btnDev.addEventListener("click", () => {
+  sectionMotion.style.display="none";
+  sectionWebdev.style.display="block";
+  
 })

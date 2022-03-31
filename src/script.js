@@ -97,17 +97,22 @@ function setLighting(){
 
 
 gltfLoader.load(
-    '/models/crane/crane1.gltf',
+    '/models/scene/adamHead.gltf',
     (gltf) =>
     {
         gltf.scene.scale.set(1, 1, 1)
-        gltf.scene.position.set(0, -3, 0)
-        gltf.scene.rotation.y = -0.5
+        gltf.scene.position.set(0, -2, 0)
+        gltf.scene.rotation.x = 0.729
+        gltf.scene.rotation.y = 0.581
+        gltf.scene.rotation.z = 0.502
+
         group1.add(gltf.scene)
         scene.add(group1)
 
-        gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation')
-        gui.add(gltf.scene.position, 'y').min(- -500).max(Math.PI).step(0.001).name('position')
+        // gui.add(gltf.scene.rotation, 'x').min(- Math.PI).max(Math.PI).step(0.001).name('rotation x')
+        // gui.add(gltf.scene.rotation, 'y').min(- Math.PI).max(Math.PI).step(0.001).name('rotation Y')
+        // gui.add(gltf.scene.rotation, 'z').min(- Math.PI).max(Math.PI).step(0.001).name('rotation Z')
+        // gui.add(gltf.scene.position, 'y').min(- -500).max(Math.PI).step(0.001).name('position')
 
         updateAllMaterials()
     }
@@ -132,7 +137,7 @@ gltfLoader.load(
 /**
  * Lights
  */
-const directionalLight = new THREE.DirectionalLight('#ffecd2',7.47)
+const directionalLight = new THREE.DirectionalLight('#ffecd2',0.478)
 directionalLight.castShadow = true
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
@@ -149,10 +154,10 @@ directionalLight2.position.set(75.201, 1.681, 5)
 scene.add(directionalLight2)
 
 
-gui.add(directionalLight, 'intensity').min(0).max(100).step(0.001).name('lightIntensity')
-gui.add(directionalLight.position, 'x').min(- 5).max(100).step(0.001).name('lightX')
-gui.add(directionalLight.position, 'y').min(- 5).max(100).step(0.001).name('lightY')
-gui.add(directionalLight.position, 'z').min(- 5).max(100).step(0.001).name('lightZ')
+// gui.add(directionalLight, 'intensity').min(0).max(100).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, 'x').min(- 5).max(100).step(0.001).name('lightX')
+// gui.add(directionalLight.position, 'y').min(- 5).max(100).step(0.001).name('lightY')
+// gui.add(directionalLight.position, 'z').min(- 5).max(100).step(0.001).name('lightZ')
 
 /**
  * Sizes
@@ -213,7 +218,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.physicallyCorrectLights = true
 renderer.outputEncoding = THREE.sRGBEncoding
-renderer.toneMapping = THREE.ACESFilmicToneMapping
+renderer.toneMapping = THREE.ReinhardToneMapping
 renderer.toneMappingExposure = 1.25
 renderer.shadowMap.enabled = true
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
@@ -319,7 +324,7 @@ const tick = () =>
 {
      const elapsedTime = clock.getElapsedTime()
 
-     group1.rotation.y = 0.25 * elapsedTime
+      group1.rotation.y = 0.05 * elapsedTime
     
 
     const parallaxX = cursor.x
@@ -336,7 +341,7 @@ const tick = () =>
     cameraGroup.position.x = 1
 
     // group1.rotation.y = parallaxX //rotation en suivant la souris
-    group1.rotation.x = - parallaxY 
+    // group1.rotation.x = - parallaxY 
 
     cameraGroup.rotation.x = 0.8
 // gsap.to(group1.position, { duration: 2, delay: 0.5, opacity: 1})
