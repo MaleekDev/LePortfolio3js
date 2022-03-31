@@ -356,18 +356,10 @@ const tick = () =>
 
 tick()
 
-// gsap.to(".titre_principale", { x: 100, opacity: 1, duration: 3});
+gsap.to(".titre_principale", { x: 100, opacity: 1, duration: 3});
 
 
-// gsap.to(".titre", {
-//     scrollTrigger: {
-//         trigger: ".titre",
-//         toggleActions:"restart none none none"
-//     }, 
-//     x: 100,
-//     eacity: 1,
-//     duration: 3
-//   });
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -375,9 +367,9 @@ gsap.registerPlugin(ScrollTrigger);
     scrollTrigger: {
       trigger: ".titre",
       toggleActions: "play restart restart reset",
-      // scrub: true,
-    // start: "top bottom",
-    // end: "top top"
+      scrub: true,
+      start: "top bottom",
+      end: "top top"
       
     },
     x: 240,
@@ -385,17 +377,20 @@ gsap.registerPlugin(ScrollTrigger);
     duration: 2
   });
 
-  gsap.to(".scd-parti", { 
+  gsap.to( ".titre.principale2", {
     scrollTrigger: {
-      trigger: ".scd-parti",
-      toggleActions: "play resume restart reset",
-      scrub: true,
-      start: "90px bottom",
-      end: "-90px"
-    },
-    x: 20,
+        trigger: ".titre.principale",
+        scrub: true,
+        pin: false,
+        start: "top top",
+        end: "+=150%",
+        markers: true
+    }, 
+    
+    xPercent: 5, 
     opacity: 1,
-    duration: 1.5
+    duration: 10,
+    ease: "easeOut"
   });
 
   gsap.to(".section.one > span ", {
@@ -414,32 +409,60 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 
-   let galerieDev = document.querySelector('.galerie.web-design'); 
-   let maquetteDev = document.querySelector('.webdev_maquette')
-   let maquetteDevtwo = document.querySelector('.webdev_maquette2')
+  //  let galerieDev = document.querySelector('.galerie.web-design'); 
+  //  let maquetteDev = document.querySelector('.webdev_maquette')
+  //  let maquetteDevtwo = document.querySelector('.webdev_maquette2')
    
-   gsap.to( maquetteDev, {
-    scrollTrigger: {
-      trigger: galerieDev,
-      scrub: true,
-      pin: true,
-      start: "top top",
-      end: "+=100%"
-    },
-    yPercent: -45, 
-    transformOrigin: "top bottom", 
-    ease: "easeOut",
-  });
+  //  gsap.to( maquetteDev, {
+  //   scrollTrigger: {
+  //     trigger: galerieDev,
+  //     scrub: true,
+  //     pin: true,
+  //     start: "top top",
+  //     end: "+=100%"
+  //   },
+  //   yPercent: -45, 
+  //   transformOrigin: "top bottom", 
+  //   ease: "easeOut",
+  // });
 
-  gsap.to( maquetteDevtwo, {
-    scrollTrigger: {
-      trigger: galerieDev,
-      scrub: true,
-      pin: true,
-      start: "top top",
-      end: "+=100%"
-    },
-    yPercent: -45, 
-    transformOrigin: "top bottom", 
-    ease: "easeOut",
-  });
+  // gsap.to( maquetteDevtwo, {
+  //   scrollTrigger: {
+  //     trigger: galerieDev,
+  //     scrub: true,
+  //     pin: true,
+  //     start: "top top",
+  //     end: "+=100%"
+  //   },
+  //   yPercent: -45, 
+  //   transformOrigin: "top bottom", 
+  //   ease: "easeOut",
+  // });
+
+  gsap.to( ".div2", {
+      scrollTrigger: {
+        trigger: ".section.perso",
+        scrub: true,
+        pin: false,
+        start: "-90px",
+        end: "+=100%"
+      },
+      yPercent: -150, 
+      opacity: 0,
+      transformOrigin: "top bottom", 
+      ease: "easeOut",
+    });
+
+    gsap.to( ".div3", {
+      scrollTrigger: {
+        trigger: ".section.perso",
+        scrub: true,
+        pin: false,
+        start: "top",
+        end: "+=120%"
+      },
+      yPercent: 120, 
+      opacity: 0,
+      transformOrigin: "top bottom", 
+      ease: "easeOut",
+    });

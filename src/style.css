@@ -63,52 +63,33 @@ li.ss-menu.actif {
 
 
 @media screen and (min-width: 1300px) {
-
-    .galerie.web-design {
-        display: block;
-        padding: 2em 1em;
-        top: -17vw;
-        width: 111%;
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(2, 8fr);
-        background-color: #e8e8e8;
-    }
-    
-    figure:nth-child(1){
-        width: fit-content;
-        grid-column: 1/2;
-        overflow-y: hidden;
-    }
-    figure:nth-child(2){
-        width: fit-content;
-        grid-column: 2/2;
-        justify-self: end;
-        overflow-y: hidden;
-    }
-
-    .slider.dev{
-        display: block;
-    }
-    .slider.motion{
-        display: block;
-    }
-    .slider{
-        position: absolute;
-        left: 0%;
-        top: 50%;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-}
-
-    .contain_sousmenu {
+/* second section */
+    .contain-titre {
         display: grid;
         margin-top: 2em;
         text-transform: none;
-        width: 14vw;
+        width: fit-content;
     }
 
+    .contain-titre > span {
+        letter-spacing: 0.1em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1vw;
+        font-family: var(--font-title);
+        color: whitesmoke;
+        opacity: 1;
+        font-size: var(--paragrapheSize);
+    }
+
+    .titre.principale2 {
+        color: whitesmoke;
+        font-size: 1.5em;
+        font-family: var(--font-title);
+        opacity: 0;
+    }
+/* end second section*/
     .ss-menu{
         font-size:6vw;
         position: relative;
@@ -258,13 +239,6 @@ li.ss-menu.actif {
         display: none;
     }
     
-    .titre.principale2 {
-        margin-bottom: 0em !important;
-        font-size: 1.4vw !important;
-        font-family: var(--font-title);
-        transform: translate(-11vw, 0vw) !important;
-    }
-
     .overlay {
     background-color: rgba(255, 255, 255, 0.795);
     height: 17.8vw;
@@ -342,13 +316,6 @@ li.ss-menu.actif {
             grid-area: 1 / 4 / 6 / 6; 
             }
 
-    .titre.principale2 > span 
-    {
-        text-transform: lowercase;
-        font-weight: 300;
-        font-family: var(--font-title);
-        opacity: 1;
-    }
 
     p.description
     {
@@ -675,16 +642,6 @@ li.ss-menu.actif {
         background: url(/static/image/couverture_nissan.jpg);
         background-size: cover;
     }
-
-
-    .titre.principale2 {
-        margin-bottom: 0em !important;
-        font-size: 2vw !important;
-        font-family: var(--font-title);
-        transform: translate(-41vw, 0vw) !important;
-    }
-    
-    
 
     .titre.principale2 > span 
     {

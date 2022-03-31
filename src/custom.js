@@ -48,126 +48,32 @@ window.addEventListener('mousemove', cursor )
     curseur.style.top = e.pageY + "px"
   }
     
-// Modifier la souris au survol d'un élément cliquable
 
 
-// function modCurseur() 
-// {
-//   var curseur = document.getElementById('curseur');
-//     curseur.className += " survol";
-// }
+// Page loader 
 
+ const loader = document.querySelector('.loader-page')
 
-
-//Afficher et dissimuler section galerie
-
-//  draggable galerie d'image 
-let draggableSlider = function () {
-  // DOM element(s)
-  let slider = document.querySelector(".slider"),
-    innerSlider = document.querySelector(".slider-inner");
-
-  // Slider variables
-  let pressed = false,
-    startX,
-    x;
-
-  // Mousedown eventlistener
-  slider.addEventListener("mousedown", (e) => {
-    pressed = true;
-    startX = e.offsetX - innerSlider.offsetLeft;
-    slider.style.cursor = "grabbing";
-  });
-
-  // mouseneter
-  slider.addEventListener("mouseenter", () => {
-    slider.style.cursor = "grab";
-  });
-
-  // mouseup
-  slider.addEventListener("mouseup", () => {
-    slider.style.cursor = "grab";
-  });
-
-  // window
-  window.addEventListener("mouseup", () => {
-    pressed = false;
-  });
-
-  // Slider mousemove event listener
-  slider.addEventListener("mousemove", (e) => {
-    if (!pressed) return;
-    e.preventDefault();
-
-    x = e.offsetX;
-
-    innerSlider.style.left = `${x - startX}px`;
-
-    checkBoundry();
-  });
-
-  // Check boundry of outer and inner sliders
-  function checkBoundry() {
-    let outer = slider.getBoundingClientRect(),
-      inner = innerSlider.getBoundingClientRect();
-
-    if (parseInt(innerSlider.style.left) > 0) {
-      innerSlider.style.left = "0px";
-    } else if (inner.right < outer.right) {
-      innerSlider.style.left = `-${inner.width - outer.width}px`;
-    }
-  }
-};
-
-// Invoke code
-draggableSlider();
-
-
-
-// Cacher
-
-// let ongletDev = document.getElementsByClassName('devonglet')
-
-// let sectionMotion = document.querySelector(".slider.motion")
-// let sectionDev = document.querySelector(".slider.dev")
-
-// let selection = document.querySelector("li.ss-menu")
-// let selectMotion = document.querySelector(".ss-menu.ongletmotion")
-
-
-// function modeActif() {
-//   selectMotion.classList.add("actif")
-// }
-
-let selectDev = document.querySelector(".ss-menu.ongletdev")
-  function modeDev() {
-      selectDev.classList.add("actif")
-    }
-
-    // Page loader 
-
-    const loader = document.querySelector('.loader-page')
-
-window.addEventListener('load', () => {
+ window.addEventListener('load', () => {
 
   loader.classList.remove('actif')
-  loader.classList.add('hide')
-})
+   loader.classList.add('hide')
+ })
   
-// Cacher le bock motion design en cliquant sur developpement web
+// // Cacher le bock motion design en cliquant sur developpement web
 
-let sectionMotion = document.querySelector(".slider.motion")
-let sectionWebdev = document.querySelector(".galerie.web-design")
-let btnMotion = document.querySelector(".ongletmotion")
-let btnDev = document.querySelector(".ongletdev")
+// let sectionMotion = document.querySelector(".slider.motion")
+// let sectionWebdev = document.querySelector(".galerie.web-design")
+// let btnMotion = document.querySelector(".ongletmotion")
+// let btnDev = document.querySelector(".ongletdev")
 
 
-btnMotion.addEventListener("click", () => {
-  sectionMotion.style.display="none";
-  sectionWebdev.style.display="block";
-})
+// btnMotion.addEventListener("click", () => {
+//   sectionMotion.style.display="none";
+//   sectionWebdev.style.display="block";
+// })
 
-btnDev.addEventListener("click", () => {
-  sectionMotion.style.display="none";
-  sectionWebdev.style.display="block";
-})
+// btnDev.addEventListener("click", () => {
+//   sectionMotion.style.display="none";
+//   sectionWebdev.style.display="block";
+// })
