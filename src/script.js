@@ -363,31 +363,64 @@ gsap.to(".titre_principale", { x: 100, opacity: 1, duration: 3});
 
 gsap.registerPlugin(ScrollTrigger);
 
-  gsap.to(".titre", { 
+// Timeline de la section 2
+let timeLine = gsap.timeline();
+
+
+  gsap.to (".titre", { 
     scrollTrigger: {
       trigger: ".titre",
       toggleActions: "play restart restart reset",
       scrub: true,
       start: "top bottom",
       end: "top top"
-      
     },
     x: 240,
     opacity: 1,
     duration: 2
   });
 
-  gsap.to( ".titre.principale2", {
+  timeLine.to( ".titre.principale2", {
     scrollTrigger: {
-        trigger: ".titre.principale",
+        trigger: ".section.services",
+        scrub: true,
+        pin: false,
+        start: "-40%",
+        end: "+=110%",
+    },
+    xPercent: -40,
+    opacity: 1,
+    duration: 1,
+    ease: "easeOut"
+  })
+
+  .to( ".contain-titre > .description", {
+    scrollTrigger: {
+        trigger: ".section.services",
         scrub: true,
         pin: false,
         start: "top top",
-        end: "+=150%",
-        markers: true
+        end: "+=5%",
     }, 
     
-    xPercent: 5, 
+    xPercent: 20, 
+    opacity: 1,
+    scale: 1,
+    duration: 10,
+    ease: "easeOut"
+  })
+  
+  .to( ".contain-titre > span", {
+    scrollTrigger: {
+        trigger: ".titre.principale",
+        toggleActions: "play restart restart reset",
+        scrub: true,
+        pin: false,
+        start: "top top",
+        end: "+=150%"
+    }, 
+    
+    xPercent: 15, 
     opacity: 1,
     duration: 10,
     ease: "easeOut"
@@ -412,20 +445,32 @@ gsap.registerPlugin(ScrollTrigger);
   //  let galerieDev = document.querySelector('.galerie.web-design'); 
   //  let maquetteDev = document.querySelector('.webdev_maquette')
   //  let maquetteDevtwo = document.querySelector('.webdev_maquette2')
-   
-  //  gsap.to( maquetteDev, {
+  
+  //  gsap.to( ".portfolio_motion-design", {
   //   scrollTrigger: {
-  //     trigger: galerieDev,
+  //     trigger: (".section.services"),
   //     scrub: true,
   //     pin: true,
   //     start: "top top",
-  //     end: "+=100%"
+  //     end: "+=310%"
   //   },
-  //   yPercent: -45, 
-  //   transformOrigin: "top bottom", 
+  //   yPercent: -100, 
+  //   transformOrigin: "top top", 
   //   ease: "easeOut",
   // });
 
+  // gsap.to( ".portfolio_developpement", {
+  //   scrollTrigger: {
+  //     trigger: (".section.services"),
+  //     scrub: true,
+  //     pin: true,
+  //     start: "top top",
+  //     end: "+=50%"
+  //   },
+  //   yPercent: -40, 
+  //   transformOrigin: "top top", 
+  //   ease: "easeOut",
+  // });
   // gsap.to( maquetteDevtwo, {
   //   scrollTrigger: {
   //     trigger: galerieDev,
@@ -439,6 +484,8 @@ gsap.registerPlugin(ScrollTrigger);
   //   ease: "easeOut",
   // });
 
+
+// 3eme section 
   gsap.to( ".div2", {
       scrollTrigger: {
         trigger: ".section.perso",
@@ -461,8 +508,56 @@ gsap.registerPlugin(ScrollTrigger);
         start: "top",
         end: "+=120%"
       },
-      yPercent: 120, 
+      yPercent: 140, 
       opacity: 0,
       transformOrigin: "top bottom", 
       ease: "easeOut",
     });
+
+const choixM = document.querySelector('.btn-motion')
+const choixD = document.querySelector('.btn-dev')
+const motionMaquettes = document.querySelector('.portfolio_motion-design')
+const devMaquettes = document.querySelector('.portfolio_developpement')
+
+choixD.addEventListener('click', () => {
+  
+ timeLine.to(motionMaquettes, { display:"none", z: -200, opacity: 0, duration: 0.5, ease:"easeOut"})
+          .to(devMaquettes, {  display:"block", z: 100, opacity: 1, duration: 1, ease:"easeIn"});
+
+          gsap.to( ".portfolio_developpement", {
+    scrollTrigger: {
+      trigger: (".section.services"),
+      scrub: true,
+      pin: true,
+      start: "top top",
+      end: "+=50%"
+    },
+    yPercent: -40, 
+    transformOrigin: "top top", 
+    ease: "easeOut",
+  });
+//  1er facons qui marche
+  // motionMaquettes.classList.remove('actif')
+  // devMaquettes.classList.add('actif')
+})
+
+choixM.addEventListener('click', () => {
+  timeLine.to(devMaquettes, { display:"none", z: -200, opacity: 0, duration: 0.5, ease:"easeOut"})
+          .to(motionMaquettes, { display:"block", z: -200, opacity: 1, duration: 1, ease:"easeIn"});
+
+          gsap.to( ".portfolio_motion-design", {
+            scrollTrigger: {
+              trigger: (".section.services"),
+              scrub: true,
+              pin: true,
+              start: "top top",
+              end: "+=210%"
+            },
+            yPercent: -100, 
+            transformOrigin: "top top", 
+            ease: "easeOut",
+          });
+  // devMaquettes.classList.remove('actif')
+  // motionMaquettes.classList.add('actif')
+
+})

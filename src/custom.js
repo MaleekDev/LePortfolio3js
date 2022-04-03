@@ -77,3 +77,16 @@ window.addEventListener('mousemove', cursor )
 //   sectionMotion.style.display="none";
 //   sectionWebdev.style.display="block";
 // })
+
+// const choixM = document.querySelector('.btn-motion')
+// const devMaquettes = document.querySelector('.portfolio_developpement')
+// const motionMaquettes = document.querySelector('.portfolio_motion-design')
+
+
+// choixM.addEventListener('click', () => {
+//   timeLine.to(devMaquettes, { z: -200, opacity: 0, duration: 0.5})
+//           .to(motionMaquettes, { z: -200, opacity: 1, duration: 1})
+//   // devMaquettes.classList.remove('actif')
+//   // motionMaquettes.classList.add('actif')
+
+// })
